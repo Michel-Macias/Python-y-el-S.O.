@@ -1,0 +1,47 @@
+COMANDOS ANALIZADOS:
+
+- TAIL
+
+- tail ---> Nos muestra las ultimas (10) lineas del file recibido en la standard input
+
+** tail -2 /var/log/syslog -----> Nos devuelve las 2 ultimas lineas del file
+
+Aug  8 12:19:32 TheFuckingMachine vboxdrv.sh[758]: vboxdrv.sh: Starting VirtualBox services.
+Aug  8 12:19:32 TheFuckingMachine vboxdrv.sh: Starting VirtualBox services.
+
+** Cada linea del file se puede leer de izda. a drcha. 
+
+Fecha Hora de entrada al file, nombre del equipo, nombre y PID del proceso 
+que desencadena el evento y, finalmente, el evento real que se esta registrando.
+
+=================================================================================================
+
+- CUT
+- Sirve para seleccionar algunos bites de la linea usando un delimitador de campo. Pueden ser un espacio en blanco o cualquier otro caracter.
+** cut -d ' ' -f5 ----> usamos el ' ' como delimitador y -f5 para mostrar el campo 5
+- Hacemos uso de la tuberia para pasarle la entrada al comando cut
+** sudo tail -2 /var/log/syslog.1 | cut -d ' ' -f6-9 ---> nos devuelve -->
+
+vboxdrv.sh[758]: vboxdrv.sh: Starting VirtualBox services.
+vboxdrv.sh: Starting VirtualBox services.
+
+===============================================================================================================
+
+COMBINACION DE COMANDOS
+
+- cut -d ' ' -f3,6,7,8,9,10,11 /var/log/syslog | sort | uniq -c | sort -nr | head ----> Nos devuelve --->
+
+     41 8 kernel: [    0.000000]
+     26 8 kernel: [    0.084314]
+     23 8 dbus-daemon[1661]: [session uid=1000 pid=1661] Successfully activated
+     21 09:07:50 [    0.000000] BIOS-e820:
+     20 8 gnome-shell[1803]: Warning: Hiding app because parental
+     20 8 gnome-shell[1783]: Warning: Hiding app because parental
+     20 09:08:18 Warning: Hiding app because parental controls
+     19 8 dbus-daemon[1640]: [session uid=1000 pid=1640] Successfully activated
+     16 8 google-chrome.desktop[2865]: Fontconfig error: Cannot load default
+     15 8 dbus-daemon[1661]: [session uid=1000 pid=1661] Activating via
+
+- Llegados a este punto lo ideal es crear un script que lleve a cabo todas las tareas. -----> Consultar--> comandos_avanzados_interaccion.sh
+
+

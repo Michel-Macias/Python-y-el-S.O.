@@ -1,0 +1,120 @@
+En los script en bash, se terminan en .sh
+
+Para guardarlo en un file escribiremos como en los scripts de Python usabamos:
+
+#!/usr/bin/env python3
+
+en el script de bash usamos:
+
+#!/bin/bash
+
+-----------------------------------------------------------------------------------------
+
+En el condicional if usamos la identacion( no necesaria, mejor para legibilidad)
+
+Si <comando> ; entonces
+	<comando>
+si no
+	<comando>
+final
+
+"""
+#!/bin/bash
+
+if grep "127.0.0.1" /etc/hosts; then
+        echo "Everything ok"
+else
+        echo "ERROR! 127.0.0.1 is not in /etc/hosts"
+fi
+"""
+En el condicional if se termina con ----> fi
+En un bucle for; do, o un bucle while; do ----> el do se termina con un done
+
+En bash podemos iterar una condicion mientras (WHILE) sea verdadera (TRUE) o
+o iterar una lista de elementos usando un bucle FOR
+
+SINTAXIS en bash de los condicionales WHILE y FOR
+
+"""
+#!/bin/bash
+
+n=1
+while [ $n -le 5 ];do
+	echo "Iteration number $n"
+	((n+=1))
+done
+"""
+
+Declaramos una variable como en Python --> n=1
+Para poder llamar a la variable despues usamos el simbolo $ seguido de la variable ---> $n y nos devuelve su valor
+
+Iniciamos el bucle WHILE --->
+mientras [ condicion ]; haz --> se deja un espacio en blanco despues y antes de los corchetes[]
+usamos ; para separar los comandos
+do --> ejecuta el/los siguiente/s comando/s si condicion es TRUE
+	Identado el codigo que queremos ejecutar, en este caso -->
+	Mostramos mensaje en pantalla mediante echo "texto en pantalla"----> Usamos comillas dobles para poder usar el valor de las variables dentro del echo
+	Para realizar operaciones aritmeticas se usa el doble parentesis (()) y se le pasa la operacion dentro pudiendo usar variables
+	((n+=1)) --> Aumentamos el valor de n en 1
+done --> Cierra el WHILE
+
+"""
+
+En nuestro trabajo diario tenemos que realizar scripts que intenten la ejecucion de los comandos varias veces hasta 
+tener exito como en las conexiones de red o el acceso a recursos asi que hacemos uso de estos bucles 
+
+************************************************************************************************************************
+***************************************************************************************************************************
+LAS VARIABLES Y LOS GLOBS
+
+Las variables en Bash se declaran como en Python (sin espacios) y se llama al valor asignado a la variable mediante el signo
+del $ seguido del nombre de la variable.---->
+saludo=hello
+echo $saludo ----> devuelve hello
+
+Las variables definidas por el usuario son de caracter local (entorno donde fue declarada).
+Para hacer que la variable sea reconocida en un entorno global usamos "export"
+
+----------------------------------------------------------------------------------------------------------
+
+Archivo vaiablesEntorno.sh
+
+#!/bin/bash
+
+line="------------------------------------------"
+
+echo "Starting at: $(date)"; echo $line
+
+echo "UPTIME"; uptime; echo $line
+
+echo "FREE"; free; echo $line
+
+echo "WHO"; who; echo $line
+
+echo "Finishing at: $(date)"
+
+-------------------------------------------------------------------------------------------------
+Nos devuelve por pantalla ----->
+
+Starting at: Sun Jul 31 10:22:55 CEST 2022
+------------------------------------------
+UPTIME
+ 10:22:55 up 28 min,  1 user,  load average: 0.06, 0.20, 0.20
+------------------------------------------
+FREE
+               total        used        free      shared  buff/cache   available
+Mem:        16250392     1741464    12399124      141712     2109804    14074096
+Swap:        1000444           0     1000444
+------------------------------------------
+WHO
+michelmacias tty2         Jul 31 09:55 (tty2)
+------------------------------------------
+Finishing at: Sun Jul 31 10:22:55 CEST 2022
+
+******************************************************************************************
+
+Tenemos tambien disponible las llamadas "globs" que son caracteres que nos permiten crear una lista de archivos.
+El asterisco y el signo de interrogacion ---> * ? ---> son los globs mas comunes.
+Nos permite usar secuencias de nombres de archivo que podemos utilizar como parametros para los comandos que llamamos scripts R.
+
+echo *.sh ---> nos devuelve una lista de archivos que terminan en .sh en el directorio actual.
