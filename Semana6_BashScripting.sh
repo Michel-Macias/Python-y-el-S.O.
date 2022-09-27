@@ -11,8 +11,9 @@ echo "------------------------------------------------"
 
 for file in *.sh; do
 	name=$(basename "$file" .sh)
-	echo mv "$file" "$name.txt"
+	mv "$file" "$name.txt"
 done
 #Es una muy buena practica el usar en los scripts que van a modificar archivos del sistema
 #el usar el comando echo para verificar antes que hara lo que necesitas y despues quitarlo
+echo cambio del 27/09/22
 
