@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# File modificado para pruebas con diff
+
 line="------------------------------------------"
 
 echo "Starting at: $(date)"; echo $line
@@ -20,10 +22,10 @@ echo
 echo
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo Argumentos en Bash
-echo El nombre del script es $0
-echo Tiene $# argumentos
-echo El argumento numero 3 es $3
-echo El usuario del script es $USER y su directorio es $HOME
+echo "El nombre del script es $0"
+echo "Tiene $# argumentos"
+echo "El argumento numero 3 es $3"
+echo "El usuario del script es $USER y su directorio es $HOME"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++"
 echo
 
