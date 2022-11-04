@@ -14,3 +14,5 @@ for line in sys.stdin:
 -- Importamos libreria sys para operar con el S.O.
    Por cada linea en el file introducido a traves de stdin:
 	variable= 
+
+# linea nueva para pruebas en el Curso Git
