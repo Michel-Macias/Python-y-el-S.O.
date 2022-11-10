@@ -5,3 +5,4 @@ También tiene algunos files interesantes de python y bash de los modulos anteri
 Cambios del dia 10 de noviembre 
 Preparando el examen de Git y seguimos con ello
 Probando el comando > git push origin main
+Esta linea esta escrita desde la pagina de GitHub en el repo, editando directamente desde el navegador
