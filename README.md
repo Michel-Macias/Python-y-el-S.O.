@@ -11,5 +11,12 @@ Esta linea esta escrita desde la pagina de GitHub en el repo, editando directame
 
 
 
+
 Lineas nuevas desde la rama main
 y preparando mas
+
+Linea desde navegador
+
+
+Linea desde navegador
+
