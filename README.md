@@ -6,3 +6,7 @@ Cambios del dia 10 de noviembre
 Preparando el examen de Git y seguimos con ello
 Probando el comando > git push origin main
 Esta linea esta escrita desde la pagina de GitHub en el repo, editando directamente desde el navegador
+--------------------------------------------------------------------------
+
+Estas lineas son para la nueva branch
+esta linea es para u nuevo commit
